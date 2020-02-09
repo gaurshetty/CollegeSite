@@ -1,4 +1,4 @@
-print("Added by Manik")
+print("Added by Manik.....Sambhaji here...")
 from django.db import models
 
 

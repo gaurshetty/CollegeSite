@@ -37,12 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_swagger',
+    'student',
+    'department',
     'restapi',
     'course',
-    'department',
-    'rest_framework_authtoken',
 
 ]
+# 'rest_framework_authtoken',
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

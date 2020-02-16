@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'restapi',
     'course',
+    'department',
+    'rest_framework_authtoken',
+
 ]
 
 MIDDLEWARE = [
@@ -74,13 +77,24 @@ WSGI_APPLICATION = 'CollegeSite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 REST_FRAMEWORK = {
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # <-- And here
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
 }
+
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'apisecurity',
+        'USER':'root',
+        'PASSWORD':'root',
+        'HOST':'localhost',
+        'PORT':3306,
     }
 }
 
